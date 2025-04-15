@@ -14,7 +14,7 @@ export const App = () => {
   );
 
   const updateQuery = event => {
-    setQuery(event.target.value);
+    setQuery(event.target.value.trim());
   };
 
   return (
