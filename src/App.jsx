@@ -6,9 +6,12 @@ import moviesFromServer from './api/movies.json';
 export const App = () => {
   const [query, setQuery] = useState('');
   const lowerQuery = query.toLowerCase();
-  const visibleMovies = moviesFromServer.filter(movie =>
-    // eslint-disable-next-line prettier/prettier
-    movie.title.toLowerCase().includes(lowerQuery));
+  const visibleMovies = moviesFromServer.filter(
+    movie =>
+      // eslint-disable-next-line prettier/prettier
+      movie.title.toLowerCase().includes(lowerQuery) ||
+      movie.description.toLowerCase().includes(lowerQuery),
+  );
 
   const updateQuery = event => {
     setQuery(event.target.value);
